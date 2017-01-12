@@ -1,0 +1,10 @@
+- [ ] internationalization language taking parsers and providing logic out of the box?
+    - [ ] internationalization datatype containing all these parsers?
+    - [ ] internationalization with alex or happy?
+- [x] display integer correctly
+    - [x] separate module
+    - [ ] \(ShowBO) class
+- [x] parse integer correctly
+    - [ ] allow any parsecT thing
+- [ ] test suite
+- [ ] instance (Default a) => Monoid (<|>) a idk?
