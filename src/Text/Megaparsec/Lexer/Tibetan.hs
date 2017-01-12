@@ -1,5 +1,6 @@
 module Text.Megaparsec.Lexer.Tibetan
     ( commandLine
+    , parseNumber
     ) where
 
 import Data.Composition
@@ -11,16 +12,15 @@ import System.Environment
 commandLine :: IO ()
 commandLine = ((runParser parseNumber "") . T.pack . (!!0) <$> getArgs) >>= print
 
-parseNumber :: Parser Int
+parseNumber :: Parser Integer
 parseNumber = do
-    digits <- reverse <$> many parseNumeral
+    digits <- reverse <$> some parseNumeral
     pure . (`div` 10) $ foldr ((*10) .* (+)) 0 digits
 
-parseNumeral :: Parser Int
-parseNumeral = foldr (<|>) (parseDigit '༠' 0) $ zipWith parseDigit ['༠','༡','༢','༣','༤','༥','༦','༧','༨','༩'] (0:[1..9])
---no null parser? b/c no monoid Int idk
+parseNumeral :: Parser Integer
+parseNumeral = foldr (<|>) (parseDigit '༠' 0) $ zipWith parseDigit "༠༡༢༣༤༥༦༧༨༩" (0:[1..9])
 
-parseDigit :: Char -> Int -> Parser Int
+parseDigit :: Char -> Integer -> Parser Integer
 parseDigit c i = do
     char c
     pure i
