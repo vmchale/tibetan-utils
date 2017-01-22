@@ -2,4 +2,4 @@
 
 Haskell library (with test suite) to parse Tibetan numerals as integers and display integers as tibetan numerals.
 
-See [Text.Megaparsec](https://hackage.haskell.org/package/megaparsec) documentation for how to use the pearser.
+See [Text.Megaparsec](https://hackage.haskell.org/package/megaparsec) documentation for how to use the parser.

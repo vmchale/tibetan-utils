@@ -1,3 +1,4 @@
+-- | Module to display positive integral values as strings
 module TextShow.Data.Integral.Tibetan ( builderBo
                                       , showBo) where
 
@@ -5,6 +6,9 @@ import qualified Data.Text.Lazy as TL
 import TextShow
 
 -- | Display positive integer as a `String`
+--
+-- > λ > showBo 312
+-- > Just "༣༡༢"
 showBo :: Integer -> Maybe String
 showBo = (fmap toString) . builderBo
 

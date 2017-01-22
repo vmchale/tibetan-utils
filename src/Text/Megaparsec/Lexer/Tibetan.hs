@@ -3,17 +3,21 @@
 -- | Parser to parse Tibetan numerals
 module Text.Megaparsec.Lexer.Tibetan
     ( parseNumber
+    , readBo
     ) where
 
 import Data.Composition
+import Data.Either.Combinators
 import qualified Data.Text as T
 import Text.Megaparsec
 import Text.Megaparsec.Text
 import Text.Megaparsec.Prim
 import System.Environment
-import Data.Either.Combinators
 
 -- | Yields a command line parser in case you want a command-line executable for use with another language
+--
+-- > λ > readBo "༣༢༠༥"
+-- > 3205
 readBo :: String -> Maybe Integer
 readBo = rightToMaybe . (runParser parseNumber "") . T.pack
 
