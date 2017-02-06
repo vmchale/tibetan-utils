@@ -4,6 +4,7 @@ import Test.Hspec
 import Test.Hspec.Megaparsec
 import Text.Megaparsec.Lexer.Tibetan
 import Text.Megaparsec
+import Text.Megaparsec.Text
 import TextShow.Data.Integral.Tibetan
 import qualified Data.Text as T
 
@@ -11,9 +12,9 @@ main :: IO ()
 main = hspec $ do
     describe "parseNumber" $ do
         it "parses Tibetan numerals as an Int" $ do
-            (runParser parseNumber "") tibStr `shouldParse` 6320
+            (runParser (parseNumber :: Parser Integer) "") tibStr `shouldParse` 6320
         it "fails when given a character that isn't a tibetan numeral" $ do
-            (runParser parseNumber "") `shouldFailOn` otherStr
+            (runParser (parseNumber :: Parser Integer) "") `shouldFailOn` otherStr
     describe "showBo" $ do
         it "displays a positive integer using tibetan numerals" $ do
             showBo 15 `shouldBe` Just ("༡༥")

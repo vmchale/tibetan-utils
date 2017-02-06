@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE TypeFamilies #-}
 
 -- | Parser to parse Tibetan numerals
 module Text.Megaparsec.Lexer.Tibetan
@@ -10,7 +11,7 @@ import Data.Composition
 import Data.Either.Combinators
 import qualified Data.Text as T
 import Text.Megaparsec
-import Text.Megaparsec.Text
+import Text.Megaparsec.String
 import Text.Megaparsec.Prim
 import System.Environment
 
@@ -18,21 +19,21 @@ import System.Environment
 --
 -- > λ > readBo "༣༢༠༥"
 -- > 3205
-readBo :: String -> Maybe Integer
-readBo = rightToMaybe . (runParser parseNumber "") . T.pack
+readBo :: (Integral a) => String -> Maybe a
+readBo = fmap fromIntegral . rightToMaybe . (runParser (parseNumber :: Parser Integer) "")
 
 -- | Parse Tibetan numerals, returning a positive integer
-parseNumber :: Parser Integer
+parseNumber :: (Integral a, MonadParsec e s m, Token s ~ Char) => m a
 parseNumber = do
     digits <- reverse <$> some parseNumeral
     (pure . (`div` 10) $ foldr ((*10) .* (+)) 0 digits) <?> "tibetan integer"
 
 -- | Parse a single digit
-parseNumeral :: Parser Integer
+parseNumeral :: (Integral a, MonadParsec e s m, Token s ~ Char) => m a
 parseNumeral = foldr (<|>) (parseDigit '༠' 0) $ zipWith parseDigit "༠༡༢༣༤༥༦༧༨༩" (0:[1..9])
 
--- | Parser a given char as a given integer
-parseDigit :: Char -> Integer -> Parser Integer
+-- | m a given char as a given integer
+parseDigit :: (Integral a, MonadParsec e s m, Token s ~ Char) => Char -> a -> m a
 parseDigit c i = do
     char c
     pure i

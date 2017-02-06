@@ -5,6 +5,6 @@
     - [x] separate module
     - [ ] \(ShowBO) class
 - [x] parse integer correctly
-    - [ ] allow any parsecT thing
-- [ ] test suite
-- [ ] instance (Default a) => Monoid (<|>) a idk?
+    - [x] allow any parsecT thing
+- [x] test suite
+- [] instance (Default a) => Monoid (<|>) a idk?
