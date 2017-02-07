@@ -7,4 +7,5 @@
 - [x] parse integer correctly
     - [x] allow any parsecT thing
 - [x] test suite
-- [] instance (Default a) => Monoid (<|>) a idk?
+- [ ] instance (Default a) => Monoid (<|>) a idk?
+- [ ] does an attoparsec library matter? idk no 
