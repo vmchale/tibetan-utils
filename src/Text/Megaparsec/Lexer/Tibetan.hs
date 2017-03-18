@@ -15,10 +15,10 @@ import Text.Megaparsec.String
 import Text.Megaparsec.Prim
 import System.Environment
 
--- | Yields a command line parser in case you want a command-line executable for use with another language
+-- | Read a string in, returning integral value or error
 --
 -- > λ > readBo "༣༢༠༥"
--- > 3205
+-- > Just 3205
 readBo :: (Integral a) => String -> Maybe a
 readBo = fmap fromIntegral . rightToMaybe . (runParser (parseNumber :: Parser Integer) "")
 
