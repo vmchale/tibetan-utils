@@ -7,13 +7,14 @@ module Text.Megaparsec.Lexer.Tibetan
     , readBo
     ) where
 
+import Data.Void
 import Data.Composition
 import Data.Either.Combinators
 import qualified Data.Text as T
 import Text.Megaparsec
-import Text.Megaparsec.String
-import Text.Megaparsec.Prim
+import Text.Megaparsec.Char
 import System.Environment
+import Text.Megaparsec.Char.Tibetan
 
 -- | Read a string in, returning integral value or error
 --
@@ -23,7 +24,7 @@ readBo :: (Integral a) => String -> Maybe a
 readBo = fmap fromIntegral . rightToMaybe . (runParser (parseNumber :: Parser Integer) "")
 
 -- | Return verbose errors.
-readBoV :: (Integral a) => String -> Either (ParseError Char Dec) a
+readBoV :: (Integral a) => String -> Either (ParseError Char Void) a
 readBoV = fmap fromIntegral . (runParser (parseNumber :: Parser Integer) "")
 
 -- | Parse Tibetan numerals, returning a positive integer
