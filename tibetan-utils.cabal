@@ -11,6 +11,7 @@ copyright:           Copyright: (c) 2016 Vanessa McHale
 category:            Web
 build-type:          Simple
 extra-source-files:  README.md
+                   , cabal.project.local
 cabal-version:       >=1.10
 
 library
