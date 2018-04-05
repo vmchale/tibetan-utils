@@ -34,7 +34,7 @@ library
         megaparsec >=6.0,
         text -any,
         composition-prelude -any,
-        text-show -any,
+        text-show >=3.3,
         either -any
 
 test-suite tibetan-utils-test
