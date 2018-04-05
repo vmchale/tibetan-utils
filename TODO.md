@@ -1,6 +1,4 @@
-- [ ] internationalization language taking parsers and providing logic out of the box?
-    - [ ] internationalization datatype containing all these parsers?
-    - [ ] internationalization with alex or happy?
+- [ ] `༠༨།༠༢།༢༠༡༨`
 - [x] display integer correctly
     - [x] separate module
     - [ ] \(ShowBO) class

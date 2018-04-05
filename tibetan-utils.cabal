@@ -7,11 +7,12 @@ license:             BSD3
 license-file:        LICENSE
 author:              Vanessa McHale
 maintainer:          tmchale@wisc.edu
-copyright:           Copyright: (c) 2016 Vanessa McHale
+copyright:           Copyright: (c) 2016-2018 Vanessa McHale
 category:            Web
 build-type:          Simple
 extra-source-files:  README.md
                    , cabal.project.local
+                   , stack.yaml
 cabal-version:       >=1.10
 
 library
@@ -22,7 +23,7 @@ library
   build-depends:       base >= 4.8 && < 5
                      , megaparsec >= 6.0
                      , text
-                     , composition
+                     , composition-prelude
                      , text-show
                      , either
   default-language:    Haskell2010

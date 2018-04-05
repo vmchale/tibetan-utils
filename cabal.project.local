@@ -1,1 +1,2 @@
-with-compiler: ghc-8.2.2
+documentation: true
+tests: true

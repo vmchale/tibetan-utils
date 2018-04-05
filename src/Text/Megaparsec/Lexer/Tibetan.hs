@@ -1,5 +1,5 @@
 {-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE TypeFamilies     #-}
 
 -- | Parser to parse Tibetan numerals
 module Text.Megaparsec.Lexer.Tibetan
@@ -7,14 +7,14 @@ module Text.Megaparsec.Lexer.Tibetan
     , readBo
     ) where
 
-import Data.Void
-import Data.Composition
-import Data.Either.Combinators
-import qualified Data.Text as T
-import Text.Megaparsec
-import Text.Megaparsec.Char
-import System.Environment
-import Text.Megaparsec.Char.Tibetan
+import           Control.Composition
+import           Data.Either.Combinators
+import qualified Data.Text                    as T
+import           Data.Void
+import           System.Environment
+import           Text.Megaparsec
+import           Text.Megaparsec.Char
+import           Text.Megaparsec.Char.Tibetan
 
 -- | Read a string in, returning integral value or error
 --

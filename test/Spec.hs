@@ -1,12 +1,12 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import Test.Hspec
-import Test.Hspec.Megaparsec
-import Text.Megaparsec.Lexer.Tibetan
-import Text.Megaparsec
-import Text.Megaparsec.Text
-import TextShow.Data.Integral.Tibetan
-import qualified Data.Text as T
+import qualified Data.Text                      as T
+import           Test.Hspec
+import           Test.Hspec.Megaparsec
+import           Text.Megaparsec
+import           Text.Megaparsec.Char.Tibetan
+import           Text.Megaparsec.Lexer.Tibetan
+import           TextShow.Data.Integral.Tibetan
 
 main :: IO ()
 main = hspec $ do
@@ -21,8 +21,8 @@ main = hspec $ do
         it "fails on negative inputs" $
             showBo (-12) `shouldBe` Nothing
 
-tibStr :: T.Text
+tibStr :: String
 tibStr = "༦༣༢༠"
 
-otherStr :: T.Text
+otherStr :: String
 otherStr = "ཨ་ནི"
