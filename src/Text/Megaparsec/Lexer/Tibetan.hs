@@ -21,11 +21,11 @@ import           Text.Megaparsec.Char.Tibetan
 -- > λ > readBo "༣༢༠༥"
 -- > Just 3205
 readBo :: (Integral a) => String -> Maybe a
-readBo = fmap fromIntegral . rightToMaybe . (runParser (parseNumber :: Parser Integer) "")
+readBo = fmap fromIntegral . rightToMaybe . runParser (parseNumber :: Parser Integer) ""
 
 -- | Return verbose errors.
 readBoV :: (Integral a) => String -> Either (ParseError Char Void) a
-readBoV = fmap fromIntegral . (runParser (parseNumber :: Parser Integer) "")
+readBoV = fmap fromIntegral . runParser (parseNumber :: Parser Integer) ""
 
 -- | Parse Tibetan numerals, returning a positive integer
 parseNumber :: (Integral a, MonadParsec e s m, Token s ~ Char) => m a
