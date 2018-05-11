@@ -1,9 +1,8 @@
 - [ ] `༠༨།༠༢།༢༠༡༨`
 - [x] display integer correctly
     - [x] separate module
-    - [ ] \(ShowBO) class
 - [x] parse integer correctly
     - [x] allow any parsecT thing
 - [x] test suite
-- [ ] instance (Default a) => Monoid (<|>) a idk?
-- [ ] does an attoparsec library matter? idk no 
+- [ ] does an attoparsec library matter? idk
+- [ ] Parse dates?
