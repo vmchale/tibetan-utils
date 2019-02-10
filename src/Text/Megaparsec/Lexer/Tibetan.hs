@@ -8,13 +8,16 @@ module Text.Megaparsec.Lexer.Tibetan
     ) where
 
 import           Control.Composition
-import           Data.Either.Combinators
 import qualified Data.Text                    as T
 import           Data.Void
 import           System.Environment
 import           Text.Megaparsec
 import           Text.Megaparsec.Char
 import           Text.Megaparsec.Char.Tibetan
+
+rightToMaybe :: Either a b -> Maybe b
+rightToMaybe Left{}    = Nothing
+rightToMaybe (Right x) = Just x
 
 -- | Read a string in, returning integral value or error
 --
@@ -24,7 +27,7 @@ readBo :: (Integral a) => String -> Maybe a
 readBo = fmap fromIntegral . rightToMaybe . runParser (parseNumber :: Parser Integer) ""
 
 -- | Return verbose errors.
-readBoV :: (Integral a) => String -> Either (ParseError Char Void) a
+readBoV :: (Integral a) => String -> Either (ParseErrorBundle String Void) a
 readBoV = fmap fromIntegral . runParser (parseNumber :: Parser Integer) ""
 
 -- | Parse Tibetan numerals, returning a positive integer

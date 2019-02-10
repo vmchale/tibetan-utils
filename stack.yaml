@@ -1,6 +1,0 @@
----
-resolver: lts-11.7
-packages:
-  - '.'
-extra-deps:
-  - composition-prelude-1.4.0.5

@@ -1,6 +1,6 @@
 cabal-version: >=1.10
 name: tibetan-utils
-version: 0.1.1.5
+version: 0.1.1.9
 license: BSD3
 license-file: LICENSE
 copyright: Copyright: (c) 2016-2018 Vanessa McHale
@@ -13,8 +13,6 @@ category: Web
 build-type: Simple
 extra-source-files:
     README.md
-    cabal.project.local
-    stack.yaml
 
 source-repository head
     type: git
@@ -30,11 +28,10 @@ library
     default-extensions: OverloadedStrings
     build-depends:
         base >=4.8 && <5,
-        megaparsec >=6.0,
+        megaparsec >=7.0,
         text -any,
         composition-prelude -any,
-        text-show >=3.3,
-        either -any
+        text-show >=3.3
 
 test-suite tibetan-utils-test
     type: exitcode-stdio-1.0
