@@ -1,3 +1,5 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 -- | Module to display positive integral values as strings
 module TextShow.Data.Integral.Tibetan ( builderBo
                                       , showBo) where
