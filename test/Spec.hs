@@ -1,3 +1,4 @@
+-- vim: syntax=hspec
 {-# LANGUAGE OverloadedStrings #-}
 
 import qualified Data.Text                      as T
