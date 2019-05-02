@@ -1,9 +1,9 @@
 cabal-version: >=1.10
 name: tibetan-utils
-version: 0.1.1.9
+version: 0.1.1.10
 license: BSD3
 license-file: LICENSE
-copyright: Copyright: (c) 2016-2018 Vanessa McHale
+copyright: Copyright: (c) 2016-2019 Vanessa McHale
 maintainer: vamchale@gmail.com
 author: Vanessa McHale
 synopsis: Parse and display tibetan numerals
@@ -30,8 +30,7 @@ library
         base >=4.8 && <5,
         megaparsec >=7.0,
         text -any,
-        composition-prelude -any,
-        text-show >=3.3
+        composition-prelude -any
 
 test-suite tibetan-utils-test
     type: exitcode-stdio-1.0
