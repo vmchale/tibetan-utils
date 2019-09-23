@@ -1,21 +1,21 @@
-cabal-version: >=1.10
-name: tibetan-utils
-version: 0.1.1.10
-license: BSD3
-license-file: LICENSE
-copyright: Copyright: (c) 2016-2019 Vanessa McHale
-maintainer: vamchale@gmail.com
-author: Vanessa McHale
-synopsis: Parse and display tibetan numerals
+cabal-version:      >=1.10
+name:               tibetan-utils
+version:            0.1.1.10
+license:            BSD3
+license-file:       LICENSE
+copyright:          Copyright: (c) 2016-2019 Vanessa McHale
+maintainer:         vamchale@gmail.com
+author:             Vanessa McHale
+synopsis:           Parse and display tibetan numerals
 description:
     This package provides a [megaparsec](http://hackage.haskell.org/package/megaparsec) parser for Tibetan numerals, as well as efficient means to display numbers using Tibetan numerals.
-category: Web
-build-type: Simple
-extra-source-files:
-    README.md
+
+category:           Web
+build-type:         Simple
+extra-source-files: README.md
 
 source-repository head
-    type: git
+    type:     git
     location: https://github.com/vmchale/tibetan-utils
 
 library
@@ -23,7 +23,8 @@ library
         Text.Megaparsec.Lexer.Tibetan
         Text.Megaparsec.Char.Tibetan
         TextShow.Data.Integral.Tibetan
-    hs-source-dirs: src
+
+    hs-source-dirs:   src
     default-language: Haskell2010
     other-extensions: FlexibleContexts OverloadedStrings TypeFamilies
     build-depends:
@@ -33,11 +34,11 @@ library
         composition-prelude -any
 
 test-suite tibetan-utils-test
-    type: exitcode-stdio-1.0
-    main-is: Spec.hs
-    hs-source-dirs: test
+    type:             exitcode-stdio-1.0
+    main-is:          Spec.hs
+    hs-source-dirs:   test
     default-language: Haskell2010
-    ghc-options: -threaded -rtsopts -with-rtsopts=-N
+    ghc-options:      -threaded -rtsopts -with-rtsopts=-N
     build-depends:
         base -any,
         tibetan-utils -any,
