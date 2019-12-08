@@ -4,12 +4,12 @@
 module TextShow.Data.Integral.Tibetan ( builderBo
                                       , showBo) where
 
-import qualified Data.Text.Lazy as TL
-import Data.Text.Lazy.Builder (Builder, toLazyText, fromLazyText)
+import qualified Data.Text.Lazy         as TL
+import           Data.Text.Lazy.Builder (Builder, fromLazyText, toLazyText)
 
 -- | Display positive integer as a `String`
 --
--- > λ > showBo 312
+-- > λ:> showBo 312
 -- > Just "༣༡༢"
 showBo :: Integer -> Maybe String
 showBo = fmap (TL.unpack.toLazyText) . builderBo
